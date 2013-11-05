@@ -152,7 +152,7 @@ li {
 	position: absolute;
 	overflow: hidden;
 	top: 0;
-	bottom: 45px;
+	bottom: 40px;
 	left: 0;
 	right: 0;
 	left: -999em;
@@ -161,9 +161,6 @@ li {
 	transition: opacity 1s ease-in-out;
 }
 
-.inControl #slides .slide, .hide_progress #slides .slide {
-	bottom: 40px;
-}
 /* line 65, ../../sass/global.scss */
 #slides .content {
 	padding: 150px;
@@ -317,9 +314,7 @@ li {
 	background: red;
 	opacity: 1;
 }
-.hide_progress .progress_indicator li {
-	height: 0px;
-}
+
 .progress_indicator {
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -328,10 +323,16 @@ li {
 	-moz-flex-flow: row wrap;
 	flex-flow: row wrap;
 	position: fixed;
-	bottom: 40px;
+	bottom: 35px;
 	left: 0px;
 	right: 0px;
 	z-index: 4;
+	transition: all 300ms ease-in-out;
+	opacity: 0;
+}
+
+.progress_indicator.active {
+	opacity: 1;
 }
 
 .progress_indicator li {

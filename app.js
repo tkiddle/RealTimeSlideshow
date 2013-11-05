@@ -2,7 +2,8 @@ var express = require("express"),
 	app = express(),
 	currentSlide = 0,
 	connectCounter = 0,
-	config = require('./config.js');
+	config = require('./config.js'),
+	currentProgressBar = false;
 
 config(app, express);
 app.engine('.ect', app.get('ectRenderer').render);
@@ -32,7 +33,10 @@ io.sockets.on('connection', function (socket) {
 	});
 
 	socket.on('sendToggleProgress', function (data) {
-		console.log('test');
+		if (typeof data.toggle !== 'undefined') {
+			currentProgressBar = data.toggle;
+		}
+		data.toggle = currentProgressBar;
 		io.sockets.emit('toggleProgress', data);
 	});
 });

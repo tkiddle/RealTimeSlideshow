@@ -18,21 +18,21 @@ window.onload = function() {
 	});
 
 	socket.on('toggleProgress', function (data) {
-		$('body').toggleClass('hide_progress');
-		$toggle_progress.toggleClass('active');
+		$progress_indicator.toggleClass('active', data.toggle);
+		$toggle_progress.toggleClass('active', data.toggle);
 	});
 
 	$controls.on('click', function (e) {
 		var action = $(e.target).data('action');
-		socket.emit('sendToggleProgress', {
+		socket.emit('send', {
 			direction: action,
 			end: slides.end
 		});
 	});
 
 	$toggle_progress.on('click', function (e) {
-		socket.emit('send', {
-			toggle: true
+		socket.emit('sendToggleProgress', {
+			toggle: !$('.toggle_progress').is('.active')
 		});
 	});
 
@@ -57,6 +57,10 @@ window.onload = function() {
 	});
 
 	socket.emit('send', {
+		direction: 0
+	});
+
+	socket.emit('sendToggleProgress', {
 		direction: 0
 	});
 
