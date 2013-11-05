@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Mint Velvet | Responsive Proposal</title>
+	  <link href="stylesheets/global.css" media="screen, projection" rel="stylesheet" type="text/css" />
+	  <link href="stylesheets/print.css" media="print" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<h1>Heloooooo</h1>
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+	  var socket = io.connect('http://localhost');
+	  socket.on('news', function (data) {
+	    console.log(data);
+	    socket.emit('my other event', { my: 'data' });
+	  });
+</script>
+</body>
+</htm:

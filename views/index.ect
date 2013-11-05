@@ -1,0 +1,16 @@
+<html>
+	<% include 'header.ect' %>
+	<body class="<%= @control %>">
+		<div id="slides">
+			<% for slide in @options.slides : %>
+				<% include @options.slideDir + slide.file, {param : slide.param, options: @options} %>
+			<% end %>
+		</div>
+		<div class="controls">
+			<div id="next" data-action="next"></div>
+			<div id="prev" data-action="prev"></div>
+		</div>
+		<% include 'pagination.ect' %>
+		<% include 'footer.ect' %>
+	</body>
+</html>

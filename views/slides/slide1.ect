@@ -1,0 +1,15 @@
+<div class="slide slide1">
+	<div class="content">
+		<div id="welcome">
+			<% if @options.logo : %>
+				<h1 class="scale">
+					<img src="<%= @options.logo %>" alt="<%= @options.title %>"/>
+				</h1>
+			<% else : %>
+				<h1 class="scale"><%= @options.brand %></h1>
+			<% end %>
+			<h2 class="delay500 scale"><%= @options.title %></h2>
+			<!--<%= @param.image %>-->
+		</div>
+	</div>
+</div>

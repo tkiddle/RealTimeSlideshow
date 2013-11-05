@@ -1,0 +1,133 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "reset.scss";
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic);
+
+/**
+ *	Let's set up some brand specific variables
+ */
+ $color1: #8a8a8a; /* Primary Brand Colour */
+ $color2: #fff; /* Secondary Brand Colour */
+ $color3: #000; /* Teritary Brand Colour */
+ $fontFamily: "Open Sans", sans-serif;
+
+body {
+	opacity:0;
+	text-align:left;
+	font-family: $fontFamily;
+	font-weight:300;
+	font-style:italic;
+	color:$color1;
+	overflow:hidden;
+ }
+
+ body.active {opacity:1;}
+
+ h1 {font-size:40px; text-transform:capitalize; position:fixed; z-index:4; top:0; left:0; right:0; padding:20px 2%; border-bottom:1px solid lighten($color1, 40%); box-shadow:0 3px 4px rgba(0,0,0,0.05); background:darken($color2, 3%);}
+ h2 {font-size:50px; text-transform:uppercase; color:lighten($color1, 20%); letter-spacing:-1px; text-align:center;}
+ li {line-height:80px;}
+
+.controls{display:none;}
+
+.inControl {
+	.controls{display:block;}
+
+	#next,
+	#prev {
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		height:100%;
+		width:50px;
+		background:rgba(darken($color2, 10%), 0.8);
+		cursor:pointer;
+		z-index:3;
+	}
+
+	#next {right:0; left:auto;}
+}
+
+#slides {
+	.slide {
+		position:absolute;
+		overflow:scroll;
+		top:0; bottom:0; left:0; right:0;
+		left:-999em;
+		z-index:0;
+		opacity:0;
+		transition: opacity 1s ease-in-out;
+	}
+
+	.content {
+		padding:150px;
+	}
+
+	.current {
+		left:0;
+		z-index:1;
+		opacity:1;
+	}
+}
+
+#footer {
+	height:40px;
+	line-height:45px;
+	font-size: 11px;
+	width:98%;
+	padding:0 1%;
+	position:absolute;
+	bottom:0;
+	left:0;
+	background:#111;
+	z-index:3;
+	color:$color2;
+	box-shadow:0 -3px 8px rgba(0,0,0,0.3);
+
+	p {float:right;}
+}
+
+.slide1 {
+	text-align: center;
+
+	h1 {
+		background:$color2;
+		font-size:70px;
+		font-weight:500;
+		font-style:normal;
+		position:relative;
+		text-transform:uppercase;
+		letter-spacing:18px;
+		padding:0 3px;
+		border:none;
+		box-shadow:none;
+	}
+}
+
+.visuals {
+	img,
+	iframe {width:100%;}
+	iframe {height:100%;}
+
+	.iphone,
+	.ipad {display:none;}
+
+	@media (max-width:1024px) {
+		.desktop {display:none;}
+	}
+
+	@media (min-width:480px) and (max-width:1024px) {
+		.ipad {display:block;}
+		.desktop {display:none;}
+		.menu {display:none !important;}
+	}
+
+	@media (max-width:480px) {
+		.iphone {display:block;}
+	}
+}
+.absMiddle {height:500px; width:800px; top:50%; left:50%; margin:-250px 0 0 -400px; position:absolute;}
+.absoBottom {width:50%; position:absolute; bottom:40px; left:50%; margin:0 0 0 -25%; z-index:-1;}
