@@ -2,6 +2,7 @@ window.onload = function() {
 	var socket = io.connect('http://localhost'),
 		$controls = $('.controls'),
 		$pagination = $('.pagination'),
+		$progress_indicator = $('.progress_indicator'),
 		$paginationTrigger = $pagination.find('.trigger');
 		$thumbnails = $pagination.find('img'),
 		slides = {
@@ -11,6 +12,8 @@ window.onload = function() {
 
 	socket.on('changeSlide', function (data) {
 		slides.$slides.eq(data.currentSlide).addClass("current").siblings().removeClass("current");
+		$thumbnails.removeClass('active').eq(data.currentSlide).addClass('active');
+		$progress_indicator.find('li').removeClass('active').eq(data.currentSlide).addClass('active');
 	});
 
 	$controls.on('click', function (e) {

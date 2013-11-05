@@ -152,7 +152,7 @@ li {
 	position: absolute;
 	overflow: hidden;
 	top: 0;
-	bottom: 0;
+	bottom: 40px;
 	left: 0;
 	right: 0;
 	left: -999em;
@@ -305,10 +305,13 @@ li {
 	left: 50%;
 	margin: 0 0 0 -25px;
 	cursor: pointer;
+	opacity: 0.3;
+	transition: all 300ms ease-in-out;
 }
 
 .pagination.offscreen .trigger {
 	background: red;
+	opacity: 1;
 }
 .progress_indicator {
 	display: -webkit-flex;
@@ -318,15 +321,24 @@ li {
 	-moz-flex-flow: row wrap;
 	flex-flow: row wrap;
 	position: fixed;
-	bottom: 20px;
+	bottom: 40px;
 	left: 0px;
 	right: 0px;
+	z-index: 4;
 }
 
 .progress_indicator li {
 	-webkit-flex: 1 0 auto;
 	-moz-flex: 1 0 auto;
 	flex: 1 0 auto;
-	background: red;
+	background: #ddd;
 	text-align: center;
+	height: 5px;
+	line-height: 0px;
+	font-size: 0;
+	color: #ddd;
+	transition: all 300ms ease-in-out;
+}
+.progress_indicator li.active {
+	background: #428bca;
 }
