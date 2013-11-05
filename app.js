@@ -22,7 +22,8 @@ io.sockets.on('connection', function (socket) {
 			}
 			data.currentSlide = currentSlide;
 		}
-		if (!data.currentSlide) data.currentSlide = currentSlide;
+		if (typeof data.currentSlide === 'undefined') data.currentSlide = currentSlide;
+		currentSlide = data.currentSlide;
 		io.sockets.emit('changeSlide', data);
 	});
 
