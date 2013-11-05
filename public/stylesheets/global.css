@@ -160,7 +160,8 @@ li {
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
 }
-.inControl #slides .slide {
+
+.inControl #slides .slide, .hide_progress #slides .slide {
 	bottom: 40px;
 }
 /* line 65, ../../sass/global.scss */
@@ -316,6 +317,9 @@ li {
 	background: red;
 	opacity: 1;
 }
+.hide_progress .progress_indicator li {
+	height: 0px;
+}
 .progress_indicator {
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -344,4 +348,17 @@ li {
 }
 .progress_indicator li.active {
 	background: #428bca;
+}
+.toggle_progress {
+	position: absolute;
+	left: 0px;
+	top: -22px;
+	background: red;
+	height: 22px;
+	color: #fff;
+	padding: 0 4px;
+	cursor: pointer;
+}
+.toggle_progress.active {
+	background: blue;
 }

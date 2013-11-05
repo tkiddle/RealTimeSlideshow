@@ -5,6 +5,7 @@ window.onload = function() {
 		$progress_indicator = $('.progress_indicator'),
 		$paginationTrigger = $pagination.find('.trigger');
 		$thumbnails = $pagination.find('img'),
+		$toggle_progress = $('.toggle_progress'),
 		slides = {
 			$slides: $('.slide', '#slides'),
 			end: $('.slide', '#slides').length > 0 ? $('.slide', '#slides').length : 0,
@@ -16,11 +17,22 @@ window.onload = function() {
 		$progress_indicator.find('li').removeClass('active').eq(data.currentSlide).addClass('active');
 	});
 
+	socket.on('toggleProgress', function (data) {
+		$('body').toggleClass('hide_progress');
+		$toggle_progress.toggleClass('active');
+	});
+
 	$controls.on('click', function (e) {
 		var action = $(e.target).data('action');
-		socket.emit('send', {
+		socket.emit('sendToggleProgress', {
 			direction: action,
 			end: slides.end
+		});
+	});
+
+	$toggle_progress.on('click', function (e) {
+		socket.emit('send', {
+			toggle: true
 		});
 	});
 

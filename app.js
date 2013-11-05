@@ -24,7 +24,15 @@ io.sockets.on('connection', function (socket) {
 		}
 		if (typeof data.currentSlide === 'undefined') data.currentSlide = currentSlide;
 		currentSlide = data.currentSlide;
-		io.sockets.emit('changeSlide', data);
+		if (data.toggle === true) {
+			io.sockets.emit('toggleProgress', data);
+		} else {
+			io.sockets.emit('changeSlide', data);
+		}
 	});
 
+	socket.on('sendToggleProgress', function (data) {
+		console.log('test');
+		io.sockets.emit('toggleProgress', data);
+	});
 });

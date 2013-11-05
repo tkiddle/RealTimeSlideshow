@@ -1,6 +1,6 @@
 <html>
 	<% include 'header.ect' %>
-	<body class="<%= @control %>">
+	<body class="<%= @control %> hide_progress">
 		<div id="slides">
 			<% for slide in @options.slides : %>
 				<% include @options.slideDir + slide.file, {param : slide.param, options: @options} %>

@@ -1,6 +1,7 @@
 <% if @control?.length : %>
 	<div class="pagination offscreen">
 		<div class="trigger">toggle</div>
+		<div class="toggle_progress">togle progress</div>
 		<% for slide in @options.slides : %>
 			<img src="<%= slide.thumb %>" />
 		<% end %>
