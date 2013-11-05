@@ -152,13 +152,16 @@ li {
 	position: absolute;
 	overflow: hidden;
 	top: 0;
-	bottom: 40px;
+	bottom: 45px;
 	left: 0;
 	right: 0;
 	left: -999em;
 	z-index: 0;
 	opacity: 0;
 	transition: opacity 1s ease-in-out;
+}
+.inControl #slides .slide {
+	bottom: 40px;
 }
 /* line 65, ../../sass/global.scss */
 #slides .content {
