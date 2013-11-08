@@ -1,9 +1,10 @@
 window.onload = function() {
-	var socket = io.connect('http://localhost'),
+	var socket = io.connect('192.168.1.137'),
 		$controls = $('.controls'),
-		$pagination = $('.pagination'),
+		$paginationWrap = $('.pagination-wrap'),
+		$pagination = $paginationWrap.find('.pagination'),
 		$progress_indicator = $('.progress_indicator'),
-		$paginationTrigger = $pagination.find('.trigger');
+		$paginationTrigger = $paginationWrap.find('.trigger');
 		$thumbnails = $pagination.find('img'),
 		$toggle_progress = $('.toggle_progress'),
 		slides = {
@@ -22,7 +23,7 @@ window.onload = function() {
 		$toggle_progress.toggleClass('active', data.toggle);
 	});
 
-	$controls.on('click', function (e) {
+	$controls.live('click', function (e) {
 		var action = $(e.target).data('action');
 		socket.emit('send', {
 			direction: action,
@@ -47,6 +48,7 @@ window.onload = function() {
 
 	$paginationTrigger.on('click', function (e) {
 		$pagination.toggleClass('offscreen');
+		$paginationTrigger.toggleClass('inactive');
 	});
 
 	$('.visuals').on('click', '.main', function (e) {

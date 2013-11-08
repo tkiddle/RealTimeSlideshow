@@ -11,6 +11,7 @@ module.exports = function( app, express ) {
 			brand: "Mint Velvet",
 			title: "Responsive Proposal",
 			slideDir: "slides/",
+			enableProgress: false,
 			slides: [
 				{
 					file: 'slide1.ect',

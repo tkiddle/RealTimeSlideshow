@@ -1,16 +1,22 @@
 <% if @control?.length : %>
-	<div class="pagination offscreen">
-		<div class="trigger">toggle</div>
-		<div class="toggle_progress">togle progress</div>
-		<% for slide in @options.slides : %>
-			<img src="<%= slide.thumb %>" />
-		<% end %>
+	<div class="pagination-wrap">
+		<div class="trigger inactive">F</div>
+		<div class="pagination offscreen">
+			<% if @options.enableProgress : %>
+				<div class="toggle_progress">Progress</div>
+			<% end %>
+			<% for slide in @options.slides : %>
+				<img src="<%= slide.thumb %>" />
+			<% end %>
+		</div>
 	</div>
 <% else : %>
-	<ul class="progress_indicator">
-		<% slides = 1;%>
-		<% for slide in @options.slides : %>
-			<li>slide <%- slides++%></li>
-		<% end %>
-	</ul>
+	<% if @options.enableProgress : %>
+		<ul class="progress_indicator">
+			<% slides = 1;%>
+			<% for slide in @options.slides : %>
+				<li>slide <%- slides++%></li>
+			<% end %>
+		</ul>
+	<% end %>
 <% end %>
