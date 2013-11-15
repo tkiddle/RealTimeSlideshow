@@ -1,0 +1,37 @@
+<div class="slide slide1">
+	<div class="content">
+
+		<div id="welcome">
+
+			<h2 class="delay500 scale"><%= @options.title %></h2>
+
+			<% if @options.clientlogo : %>
+
+				
+
+					<img id="client-logo" class="intro-img" src="<%= @options.clientlogo %>" alt="<%= @options.brand %>"/>
+
+			
+
+			<% else : %>
+
+				<h1 class="scale intro-img"><%= @options.brand %></h1>
+
+			<% end %>
+
+			<% if @options.btlogo : %>
+
+				<h1 class="scale">
+
+					<img class="bte-logo" src="<%= @options.btlogo %>" alt="<%= @options.title %>"/>
+
+				</h1>
+
+			<% end %>
+
+			<!--<%= @param.image %>-->
+
+		</div>
+
+	</div>
+</div>

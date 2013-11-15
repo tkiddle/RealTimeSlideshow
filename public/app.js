@@ -1,5 +1,5 @@
 window.onload = function() {
-	var socket = io.connect('192.168.1.137'),
+	var socket = io.connect('http://BTFLT080'),
 		$controls = $('.controls'),
 		$paginationWrap = $('.pagination-wrap'),
 		$pagination = $paginationWrap.find('.pagination'),
@@ -53,9 +53,13 @@ window.onload = function() {
 
 	$('.visuals').on('click', '.main', function (e) {
 		var src = $(this).attr('src'),
-			alt = $(this).data('menu');
+			alt = $(this).data('menu'),
+			fileCheck = alt.indexOf('.');
 
-		$(this).attr('src', alt).data('menu', src);
+		if (alt.length > 0 && fileCheck !== -1) {
+			$(this).attr('src', alt).data('menu', src);
+		}
+
 	});
 
 	socket.emit('send', {
