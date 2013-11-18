@@ -113,6 +113,16 @@ body {
 body.active {
 	opacity: 1;
 }
+ul.agenda {
+	margin-top: 20px;
+}
+ul.agenda li {
+	
+	text-align:center;
+	font-size: 40px;
+	line-height: 62px;
+
+}
 
 /* line 29, ../../sass/global.scss */
 h1 {
@@ -153,6 +163,9 @@ h2 {
 #welcome h2{margin-bottom:30px;}
 
 .intro-img{margin-bottom:20px;}
+
+.center{text-align:center;margin: 0 auto; display: block;}
+.content-img{width:60% margin-top:60px;}
 
 /* line 31, ../../sass/global.scss */
 li {
@@ -387,6 +400,7 @@ li {
 	#client-logo{width:100%; margin: 0 auto;}
 	
 	.content p{padding:10px 0;}
+	.content-img{width:60%;}
 
 
 }

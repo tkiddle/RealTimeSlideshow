@@ -1,6 +1,6 @@
 module.exports = function( app, express ) {
 	var config = this,
-	sass = require('node-sass'),
+	//sass = require('node-sass'),
 	ECT = require('ect');
 
 	app.configure( function() {
@@ -27,6 +27,10 @@ module.exports = function( app, express ) {
 					}
 				},
 
+				{
+					file: 'agenda.ect',
+					thumb: 'http://placehold.it/140x100&text=Slide 1'
+				},
 
 				{
 					file: 'text-1.ect',
@@ -111,6 +115,18 @@ module.exports = function( app, express ) {
 				{
 					file: 'res-burger-5.ect',
 					thumb: 'http://placehold.it/140x100&text=Slide 6'
+				},
+				{
+					file: 'text-8.ect',
+					thumb: 'http://placehold.it/140x100&text=Slide 1'
+				},
+				{
+					file: 'text-9.ect',
+					thumb: 'http://placehold.it/140x100&text=Slide 1'
+				},
+				{
+					file: 'text-10.ect',
+					thumb: 'http://placehold.it/140x100&text=Slide 1'
 				}
 
 
@@ -119,14 +135,14 @@ module.exports = function( app, express ) {
 			]
 		});
 		app.use(express.static(__dirname + '/public')); // Public js methods
-		app.use(
+		/*app.use(
 			sass.middleware({
 				src: __dirname + '/sass',
 				dest: __dirname + '/public',
 				debug: true,
 				outputStyle: 'compressed'
 			})
-		);
+		);*/
 	});
 	console.log( 'Configuration loaded' );
 	return config;

@@ -1,5 +1,5 @@
 window.onload = function() {
-	var socket = io.connect('http://BTFLT080'),
+	var socket = io.connect('http://localhost'),
 		$controls = $('.controls'),
 		$paginationWrap = $('.pagination-wrap'),
 		$pagination = $paginationWrap.find('.pagination'),
